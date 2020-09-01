@@ -27,7 +27,6 @@ io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.to(roomId).broadcast.emit('user-connected', userId);
-    
     // messages
     socket.on('message', (message) => {
       //send message to the same room
@@ -41,4 +40,3 @@ io.on('connection', socket => {
 })
 
 server.listen(process.env.PORT||3030)
-sten(3030);
